@@ -1,0 +1,28 @@
+Python 3.9.6, NumPy 2.0.2, pandas 2.3.3
+Data: 9568 rows, train 7654, test 1914
+
+[3.1] columns: AT (degC), V (cm Hg), AP (mbar), RH (%), PE (MW)
+[3.1] missing values: 0
+[3.1] exact duplicate rows (repeats after first): 41 | rows involved: 82
+[3.2] min - max:
+      AT: 1.81 - 37.11 degC
+      V: 25.36 - 81.56 cm Hg
+      AP: 992.89 - 1033.30 mbar
+      RH: 25.56 - 100.16 %
+      PE: 420.26 - 495.76 MW
+[3.2] RH > 100 %: 55 rows | atmospheric 74.47-77.50 cm Hg | V > own atmospheric: 182 rows
+[3.3] repeats in train: 24, in test: 1, test rows also in train: 16
+[3.3] after removing repeats: train 7630, test 1897
+[4.1] AT mean / median / std: 19.65 / 20.34 / 7.45 degC
+[4.1] PE mean / median / std: 454.37 / 451.55 / 17.07 MW
+[4.2] r with PE: AT -0.948  V -0.870  AP 0.518  RH 0.390 | strongest: AT
+
+[5.1] training mean PE 454.44 MW | baseline test MAE 14.72 MW
+[5.2] line from AT: a -2.1750 MW per degC, b 497.13 MW, test MAE 4.33 MW
+[5.2] line from V: a -1.1677 MW per cm Hg, b 517.78 MW, test MAE 6.49 MW
+[5.2] line from AP: a 1.4923 MW per mbar, b -1057.70 MW, test MAE 11.99 MW
+[5.2] line from RH: a 0.4490 MW per %, b 421.54 MW, test MAE 12.95 MW
+[5.3] test MAE (MW): baseline 14.72 | AT 4.33 | V 6.49
+[5.5] file line 7656: V 35.77 cm Hg -> predicted 476.01 MW, true 483.12 MW, abs error 7.11 MW
+
+[dedup] test MAE (MW): baseline 14.66 | AT 4.33 | V 6.46
